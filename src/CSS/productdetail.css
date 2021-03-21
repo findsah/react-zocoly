@@ -1,0 +1,98 @@
+.product-image {
+  width: 855px;
+  height: 600px;
+  background-color: wheat;
+  /* transform: rotate(-30deg); */
+}
+
+.products-image {
+  width: 439px;
+  height: 540px;
+  margin-top: 15px;
+}
+
+.first-para {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #828282;
+}
+
+.prod-name {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: #353535;
+}
+
+.prod-id {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  color: #4f4f4f;
+}
+
+.prod-details {
+  display: flex;
+}
+
+.prod-price {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.prod-discount {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 30px;
+  color: #4f4f4f;
+  margin-left: 30px;
+}
+
+.discount-tag {
+  width: 25px;
+  height: 28px;
+}
+
+.form-select1 {
+  width: 180px;
+  height: 55px;
+  margin-right: 20px;
+  background: white;
+  display: block;
+  border: 1px solid #828282;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.form-select1:active {
+  box-shadow: none !important;
+  border-color: none !important;
+}
+
+.form-select2 {
+  width: 180px;
+  height: 55px;
+  border-radius: 5px;
+  background: white;
+  display: block;
+  border: 1px solid #828282;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
