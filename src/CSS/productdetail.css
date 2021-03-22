@@ -79,11 +79,11 @@
   border: 1px solid #828282;
   box-sizing: border-box;
   border-radius: 6px;
+  margin-left: 10px;
 }
 
-.form-select1:active {
-  box-shadow: none !important;
-  border-color: none !important;
+.form-select1:focus {
+  outline: none !important;
 }
 
 .form-select2 {
@@ -95,4 +95,124 @@
   border: 1px solid #828282;
   box-sizing: border-box;
   border-radius: 6px;
+  padding: 0px 12px;
+}
+
+.form-select2:focus {
+  outline: none !important;
+}
+
+.form-select3 {
+  width: 100%;
+  height: 55px;
+  border-radius: 5px;
+  background: white;
+  display: block;
+  border: 1px solid #828282;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 0px 12px;
+}
+
+.form-select3:focus {
+  outline: none !important;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 50px;
+}
+
+.cart-button {
+  width: 292px;
+  height: 80px;
+  background: #5d3a84;
+  border-radius: 6px;
+  color: white;
+  border: none;
+}
+.cart-button:focus {
+  outline: none !important;
+}
+.cart-img {
+  margin-left: 5px;
+  height: 20px;
+  width: 24px;
+}
+
+.heart-button {
+  width: 60px;
+  height: 80px;
+  background: #ffffff;
+  border: 1px solid #4f4f4f;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin-left: 64px;
+}
+
+.heart-button:focus {
+  outline: none !important;
+}
+
+.kFtqvK {
+  margin-right: 5px !important;
+}
+
+.bZNLvn {
+  margin-right: 5px !important;
+}
+
+.rating-etc {
+  display: flex;
+  margin-top: 25px;
+}
+
+.rate-no {
+  margin-left: 15px;
+  margin-right: 10px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 30px;
+  color: #4f4f4f;
+}
+
+.no-of-rat {
+  margin-left: 15px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 30px;
+  text-decoration-line: underline;
+  color: #4f4f4f;
+}
+
+.write-review {
+  margin-left: 50px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 30px;
+  text-decoration-line: underline;
+  color: #4f4f4f;
+}
+
+/* part 3 css */
+.part-3 {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.text-3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: #353535;
 }

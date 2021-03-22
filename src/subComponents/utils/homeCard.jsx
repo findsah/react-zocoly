@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import product from "../../assets/template2assets/images/product.png";
 import whitecart from "../../assets/template2assets/icons/white-cart.png";
-//import { AiOutlineHeart } from "react-icons/ai";
 import ReactStars from "react-rating-stars-component";
 import Heart from "react-animated-heart";
 import "../../CSS/home.css";
@@ -22,7 +21,6 @@ class HomeCard extends Component {
     return (
       <div className="card2">
         <div>
-          {/* <AiOutlineHeart className="ai-out" /> */}
           <Heart
             className="ai-out"
             isClick={this.state.isClick}
