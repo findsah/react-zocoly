@@ -30,7 +30,7 @@ class ProductDetail extends Component {
       <>
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
+            <div className="col-lg-8 col-md-12">
               <img className="product-image" src={product} alt="productImage" />
               <div className="row mb-2">
                 <img
@@ -60,7 +60,7 @@ class ProductDetail extends Component {
               </div>
             </div>
             {/* left line code */}
-            <div className="col-lg-4 ">
+            <div className="col-lg-4 col-md-12 col-sm-12">
               <div className="first-para">Men {">"} Running Shoe</div>
 
               <div className="prod-name mt-4">Nike React Miler</div>
@@ -87,7 +87,7 @@ class ProductDetail extends Component {
                     <option value="3">XL</option>
                   </select>
                 </div>
-                <div>
+                <div className="row">
                   <label className="form-label">Color</label>
                   <select
                     className="form-select2"
@@ -155,7 +155,7 @@ class ProductDetail extends Component {
               <div className="col-lg-3">
                 <HomeCard />
               </div>
-              <div className="col-lg-3">
+              <div className="col-lg-3 col-md-6 col-sm-12">
                 <HomeCard />
               </div>
               <div className="col-lg-3">
