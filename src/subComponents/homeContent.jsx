@@ -2,15 +2,41 @@ import React, { Component } from "react";
 import { Dropdown } from "react-bootstrap";
 import "../CSS/home.css";
 import Accordion from "./utils/homeAccordion";
-import HomeCard from "./utils/homeCard";
+//import HomeCard from "./utils/homeCard";
 import { Pagination, Col } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
+import ReactStars from "react-rating-stars-component";
+import Heart from "react-animated-heart";
+//import product from "../assets/template2assets/images/product.png";
+import whitecart from "../assets/template2assets/icons/white-cart.png";
+import { getProduct, getitems } from "./../services/callingServices";
 
 class HomeContent extends Component {
   state = {
     modalShow: false,
+    isClick: false,
+    items: [],
   };
+
+  ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
+
+  handleClick = (e) => {
+    this.setState({ isClick: !this.state.isClick });
+  };
+
+  componentDidMount = async () => {
+    const product = await getProduct();
+    const productName = product[0].name;
+
+    const data = await getitems(productName);
+    this.setState({ items: data });
+  };
+
   render() {
+    const { items } = this.state;
+    console.log(items);
     return (
       <>
         <div className="container mycont">
@@ -45,13 +71,13 @@ class HomeContent extends Component {
                   show={this.state.modalShow}
                   onHide={() => this.setState({ modalShow: false })}
                 />
-                {console.log(this.state.modalShow)}
+                {/* {console.log(this.state.modalShow)} */}
               </div>
             </div>
           </div>
         </div>
 
-        {/* cards and accordion */}
+        {/*  accordion and cards */}
         <div className="container mycont">
           <div className="row">
             <div className="col-lg-3 col-md-12 col-sm-12 accordiana">
@@ -59,24 +85,54 @@ class HomeContent extends Component {
             </div>
             <div className="col-lg-9 ">
               <div className="row">
-                <div className="col-lg-4 col-md-6 col-sm-12 res">
-                  <HomeCard />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 res">
-                  <HomeCard />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 res">
-                  <HomeCard />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 res">
-                  <HomeCard />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 res">
-                  <HomeCard />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 res">
-                  <HomeCard />
-                </div>
+                {items.map((item, index) => (
+                  <div className="col-lg-4 col-md-6 col-sm-12 res" key={index}>
+                    <div className="card2">
+                      <div>
+                        <Heart
+                          className="ai-out"
+                          isClick={this.state.isClick}
+                          onClick={(e) => this.handleClick(e)}
+                        />
+                      </div>
+                      <div>
+                        <img
+                          className="card2-img"
+                          src={`https://zocoly-backend.herokuapp.com${item.item_files[0].image}`}
+                          alt="product-pic"
+                        />
+                      </div>
+                      <div>
+                        <p className="card2-text"> {item.title} </p>
+                      </div>
+
+                      {/* cards part two */}
+
+                      <div className="homecard-content">
+                        <div className="content1">
+                          {/* <h3 className="rating">Rating</h3> */}
+                          <ReactStars
+                            classNames="rating"
+                            count={5}
+                            onChange={this.ratingChanged}
+                            size={18}
+                            activeColor="#ffd700"
+                          />
+                          <h2 className="price">${item.price}</h2>
+                        </div>
+                        <div className="content2">
+                          <button className="homecard-button">
+                            <img
+                              className="content2-img"
+                              src={whitecart}
+                              alt="white-cart"
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="row paginat">
                 <Col className="justify-content-center">
@@ -93,8 +149,6 @@ class HomeContent extends Component {
                 </Col>
               </div>
             </div>
-
-            {/* pagination */}
           </div>
         </div>
       </>

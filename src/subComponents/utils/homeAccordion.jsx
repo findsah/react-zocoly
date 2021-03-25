@@ -27,11 +27,11 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
-                <p> Accordion body </p>
-                <p> Accordion body </p>
-                <p> Accordion body </p>
-                <p> Accordion body </p>
+                <p> name </p>
+                <p> data </p>
+                <p> type </p>
+                <p> size </p>
+                <p> tags </p>
               </div>
             </div>
           </div>
@@ -55,7 +55,11 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> name </p>
+                <p> data </p>
+                <p> type </p>
+                <p> size </p>
+                <p> tags </p>
               </div>
             </div>
           </div>
@@ -79,7 +83,11 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> name </p>
+                <p> data </p>
+                <p> type </p>
+                <p> size </p>
+                <p> tags </p>
               </div>
             </div>
           </div>
@@ -103,7 +111,11 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> name </p>
+                <p> data </p>
+                <p> type </p>
+                <p> size </p>
+                <p> tags </p>
               </div>
             </div>
           </div>
@@ -127,7 +139,11 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> name </p>
+                <p> data </p>
+                <p> type </p>
+                <p> size </p>
+                <p> tags </p>
               </div>
             </div>
           </div>
