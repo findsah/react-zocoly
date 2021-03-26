@@ -9,10 +9,17 @@ import ReactStars from "react-rating-stars-component";
 import Heart from "react-animated-heart";
 //import product from "../assets/template2assets/images/product.png";
 import whitecart from "../assets/template2assets/icons/white-cart.png";
-import { getProduct, getitems } from "./../services/callingServices";
+import {
+  getProduct,
+  getitems,
+  sortItems,
+  CategoryItems,
+  sizeItems,
+} from "./../services/callingServices";
 
 class HomeContent extends Component {
   state = {
+    sortType: "Sort By",
     modalShow: false,
     isClick: false,
     items: [],
@@ -31,12 +38,31 @@ class HomeContent extends Component {
     const productName = product[0].name;
 
     const data = await getitems(productName);
+    console.log(data);
     this.setState({ items: data });
+  };
+
+  handleSelect = async (e) => {
+    await this.setState({
+      sortType: e,
+    });
+    const data = await sortItems(this.state.sortType);
+    this.setState({ items: data });
+  };
+
+  handleCategoriesClick = async (catValue) => {
+    const data = await CategoryItems(catValue);
+    this.setState({ items: data });
+  };
+
+  handleSizeClick = async (sizeValue) => {
+    const data = await sizeItems(sizeValue);
+    console.log(data);
+    // this.setState({ items: data });
   };
 
   render() {
     const { items } = this.state;
-    console.log(items);
     return (
       <>
         <div className="container mycont">
@@ -47,17 +73,25 @@ class HomeContent extends Component {
             <div className="col-md-6 col-sm-12 mb-3">
               <Dropdown>
                 <Dropdown.Toggle variant="" id="dropdown-basic">
-                  Sort By
+                  {this.state.sortType}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">name</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">data</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">type</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">size</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">tags</Dropdown.Item>
+                  <Dropdown.Item
+                    eventKey="title"
+                    onSelect={(eventKey) => this.handleSelect(eventKey)}
+                  >
+                    title
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    eventKey="price"
+                    onSelect={(eventKey) => this.handleSelect(eventKey)}
+                  >
+                    price
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+
               <div>
                 <button
                   className="filter-but"
@@ -81,7 +115,10 @@ class HomeContent extends Component {
         <div className="container mycont">
           <div className="row">
             <div className="col-lg-3 col-md-12 col-sm-12 accordiana">
-              <Accordion />
+              <Accordion
+                handleCategoriesClick={this.handleCategoriesClick}
+                handleSizeClick={this.handleSizeClick}
+              />
             </div>
             <div className="col-lg-9 ">
               <div className="row">

@@ -339,7 +339,7 @@
   }
 
   .card2 {
-    width: 75%;
+    width: 80%;
     margin-left: 10%;
   }
 
@@ -367,4 +367,8 @@
   color: white;
   height: 50px;
   background-color: #01355b;
+}
+
+.no {
+  cursor: pointer;
 }

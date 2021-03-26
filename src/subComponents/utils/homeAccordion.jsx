@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import "../../CSS/home.css";
 
 class Accordion extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
+    let { handleCategoriesClick, handleSizeClick } = this.props;
     return (
       <>
         <div className="accordion" aria-expanded="false" id="accordionExample">
@@ -27,11 +32,15 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> name </p>
-                <p> data </p>
-                <p> type </p>
-                <p> size </p>
-                <p> tags </p>
+                <p className="no" onClick={() => handleCategoriesClick("Mens")}>
+                  Men
+                </p>
+                <p
+                  className="no"
+                  onClick={() => handleCategoriesClick("Women")}
+                >
+                  Women
+                </p>
               </div>
             </div>
           </div>
@@ -83,11 +92,18 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> name </p>
-                <p> data </p>
-                <p> type </p>
-                <p> size </p>
-                <p> tags </p>
+                <p className="no" onClick={() => handleSizeClick("10.5")}>
+                  10.5
+                </p>
+                <p className="no" onClick={() => handleSizeClick("20.5")}>
+                  20.5
+                </p>
+                <p className="no" onClick={() => handleSizeClick("30.5")}>
+                  30.5
+                </p>
+                <p className="no" onClick={() => handleSizeClick("40.5")}>
+                  40.5
+                </p>
               </div>
             </div>
           </div>
@@ -111,11 +127,11 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> name </p>
-                <p> data </p>
-                <p> type </p>
-                <p> size </p>
-                <p> tags </p>
+                <p> White </p>
+                <p> Black </p>
+                <p> Red </p>
+                <p> Blue </p>
+                <p> Green </p>
               </div>
             </div>
           </div>
