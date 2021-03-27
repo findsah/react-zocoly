@@ -15,7 +15,10 @@ import {
   sortItems,
   CategoryItems,
   sizeItems,
+  onSaleItems,
+  colorItems,
 } from "./../services/callingServices";
+import { Link } from "react-router-dom";
 
 class HomeContent extends Component {
   state = {
@@ -58,7 +61,19 @@ class HomeContent extends Component {
   handleSizeClick = async (sizeValue) => {
     const data = await sizeItems(sizeValue);
     console.log(data);
-    // this.setState({ items: data });
+    this.setState({ items: data });
+  };
+
+  handleDiscountClick = async () => {
+    const data = await onSaleItems();
+    console.log(data);
+    this.setState({ items: data });
+  };
+
+  handleColorClick = async (colorValue) => {
+    const data = await colorItems(colorValue);
+    console.log(data);
+    this.setState({ items: data });
   };
 
   render() {
@@ -105,7 +120,6 @@ class HomeContent extends Component {
                   show={this.state.modalShow}
                   onHide={() => this.setState({ modalShow: false })}
                 />
-                {/* {console.log(this.state.modalShow)} */}
               </div>
             </div>
           </div>
@@ -118,63 +132,72 @@ class HomeContent extends Component {
               <Accordion
                 handleCategoriesClick={this.handleCategoriesClick}
                 handleSizeClick={this.handleSizeClick}
+                handleDiscountClick={this.handleDiscountClick}
+                handleColorClick={this.handleColorClick}
               />
             </div>
             <div className="col-lg-9 ">
               <div className="row">
                 {items.map((item, index) => (
                   <div className="col-lg-4 col-md-6 col-sm-12 res" key={index}>
-                    <div className="card2">
-                      <div>
-                        <Heart
-                          className="ai-out"
-                          isClick={this.state.isClick}
-                          onClick={(e) => this.handleClick(e)}
-                        />
-                      </div>
-                      <div>
-                        <img
-                          className="card2-img"
-                          src={`https://zocoly-backend.herokuapp.com${item.item_files[0].image}`}
-                          alt="product-pic"
-                        />
-                      </div>
-                      <div>
-                        <p className="card2-text"> {item.title} </p>
-                      </div>
-
-                      {/* cards part two */}
-
-                      <div className="homecard-content">
-                        <div className="content1">
-                          {/* <h3 className="rating">Rating</h3> */}
-                          <ReactStars
-                            classNames="rating"
-                            count={5}
-                            onChange={this.ratingChanged}
-                            size={18}
-                            activeColor="#ffd700"
+                    <Link
+                      className="black-text hover"
+                      to={"/productdetail/" + item.id}
+                      onClick={() =>
+                        localStorage.setItem("item", JSON.stringify(item))
+                      }
+                    >
+                      <div className="home-card2">
+                        <div>
+                          <Heart
+                            className="ai-out"
+                            isClick={this.state.isClick}
+                            onClick={(e) => this.handleClick(e)}
                           />
-                          <h2 className="price">${item.price}</h2>
                         </div>
-                        <div className="content2">
-                          <button className="homecard-button">
-                            <img
-                              className="content2-img"
-                              src={whitecart}
-                              alt="white-cart"
+                        <div>
+                          <img
+                            className="home-card2-img"
+                            src={`https://zocoly-backend.herokuapp.com${item.item_files[0].image}`}
+                            alt="product-pic"
+                          />
+                        </div>
+                        <div>
+                          <p className="card2-text"> {item.title} </p>
+                        </div>
+
+                        {/* cards part two */}
+
+                        <div className="homecard-content">
+                          <div className="content1">
+                            {/* <h3 className="rating">Rating</h3> */}
+                            <ReactStars
+                              classNames="rating"
+                              count={5}
+                              onChange={this.ratingChanged}
+                              size={18}
+                              activeColor="#ffd700"
                             />
-                          </button>
+                            <h2 className="price">${item.price}</h2>
+                          </div>
+                          <div className="content2">
+                            <button className="homecard-button">
+                              <img
+                                className="content2-img"
+                                src={whitecart}
+                                alt="white-cart"
+                              />
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 ))}
               </div>
               <div className="row paginat">
                 <Col className="justify-content-center">
                   <Pagination>
-                    {/* <Pagination.Prev /> */}
                     <Pagination.Item>{1}</Pagination.Item>
                     <Pagination.Item>{2}</Pagination.Item>
                     <Pagination.Item>{3}</Pagination.Item>

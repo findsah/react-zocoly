@@ -8,7 +8,12 @@ class Accordion extends Component {
   }
 
   render() {
-    let { handleCategoriesClick, handleSizeClick } = this.props;
+    let {
+      handleCategoriesClick,
+      handleSizeClick,
+      handleDiscountClick,
+      handleColorClick,
+    } = this.props;
     return (
       <>
         <div className="accordion" aria-expanded="false" id="accordionExample">
@@ -64,11 +69,9 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> name </p>
-                <p> data </p>
-                <p> type </p>
-                <p> size </p>
-                <p> tags </p>
+                <p className="no" onClick={() => handleDiscountClick()}>
+                  on Discount
+                </p>
               </div>
             </div>
           </div>
@@ -127,11 +130,21 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> White </p>
-                <p> Black </p>
-                <p> Red </p>
-                <p> Blue </p>
-                <p> Green </p>
+                <p className="no" onClick={() => handleColorClick("White")}>
+                  White
+                </p>
+                <p className="no" onClick={() => handleColorClick("Black")}>
+                  Black
+                </p>
+                <p className="no" onClick={() => handleColorClick("Red")}>
+                  Red
+                </p>
+                <p className="no" onClick={() => handleColorClick("Blue")}>
+                  Blue
+                </p>
+                <p className="no" onClick={() => handleColorClick("Green")}>
+                  Green
+                </p>
               </div>
             </div>
           </div>

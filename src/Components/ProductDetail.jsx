@@ -15,6 +15,7 @@ import HomeCard from "./../subComponents/utils/homeCard";
 class ProductDetail extends Component {
   state = {
     isClick: false,
+    productItem: JSON.parse(localStorage.getItem("item")),
   };
 
   handleClick = (e) => {
@@ -25,7 +26,13 @@ class ProductDetail extends Component {
     console.log(newRating);
   };
 
+  componentDidMount() {
+    console.log(this.state.productItem);
+  }
+
   render() {
+    const item = this.state.productItem;
+    // console.log(item.id);
     return (
       <>
         <div className="container">
@@ -61,16 +68,18 @@ class ProductDetail extends Component {
             </div>
             {/* left line code */}
             <div className="col-lg-4 col-md-12 col-sm-12">
-              <div className="first-para">Men {">"} Running Shoe</div>
+              <div className="first-para">
+                {item.collection_name} {">"} {item.product_name}
+              </div>
 
-              <div className="prod-name mt-4">Nike React Miler</div>
-              <div className="prod-id mt-2"> SKU# 583942439 </div>
+              <div className="prod-name mt-4">{item.title}</div>
+              <div className="prod-id mt-2"> SKU# {item.SKU} </div>
 
               <div className="prod-details mt-5">
-                <div className="prod-price">$120</div>
+                <div className="prod-price">${item.price}</div>
                 <div className="prod-discount">
                   <img className="discount-tag" src={tag} alt="discount-tag" />
-                  15% off
+                  {item.discount}% off
                 </div>
               </div>
 

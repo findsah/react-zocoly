@@ -10,7 +10,7 @@ function App() {
       <Topbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/productdetail" component={ProductDetail} />
+        <Route exact path="/productdetail/:id" component={ProductDetail} />
       </Switch>
     </div>
   );
