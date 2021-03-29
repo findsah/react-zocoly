@@ -24,7 +24,7 @@ export const getitems = async (productname) => {
 
 // for sorting items
 export const sortItems = async (sortType) => {
-  console.log(sortType);
+  // console.log(sortType);
   const { data } = await axios.post(
     `https://zocoly-backend.herokuapp.com/product/sort/${sortType}/`
   );
@@ -62,7 +62,7 @@ export const onSaleItems = async () => {
 
 // for sorting items according to color
 export const colorItems = async (colorValue) => {
-  console.log(colorValue);
+  // console.log(colorValue);
   const { data } = await axios.post(
     `https://zocoly-backend.herokuapp.com/product/variant/${colorValue}/`
   );

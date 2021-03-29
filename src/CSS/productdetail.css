@@ -1,7 +1,7 @@
 .product-image {
   width: 855px;
   height: 600px;
-  background-color: wheat;
+  /* background-color: wheat; */
   /* transform: rotate(-30deg); */
 }
 
@@ -9,6 +9,7 @@
   width: 439px;
   height: 540px;
   margin-top: 15px;
+  object-fit: cover;
 }
 
 .first-para {
@@ -73,7 +74,7 @@
 .form-select1 {
   width: 90%;
   height: 55px;
-  margin-right: 40px;
+  margin-right: 82px;
   background: white;
   display: block;
   border: 1px solid #828282;
@@ -127,7 +128,7 @@
 .cart-button {
   width: 292px;
   height: 80px;
-  background: #5d3a84;
+  background: #5d3a84 !important;
   border-radius: 6px;
   color: white;
   border: none;
@@ -145,7 +146,7 @@
   width: 60px;
   height: 80px;
   background: #ffffff;
-  border: 1px solid #4f4f4f;
+  border: 1px solid #4f4f4f !important;
   box-sizing: border-box;
   border-radius: 6px;
   margin-left: 64px;
@@ -235,7 +236,7 @@
     width: 100%;
   }
   .card2-img {
-    width: 22%;
+    width: 18%;
   }
   .form-select1 {
     width: 80%;
@@ -249,7 +250,7 @@
 
 @media only screen and (max-width: 991px) {
   .form-select3 {
-    width: 60%;
+    width: 78%;
   }
 }
 
@@ -274,5 +275,93 @@
   }
   .card2-img {
     width: 70%;
+  }
+}
+
+/* mobile view */
+
+.show-in {
+  display: none;
+}
+
+@media only screen and (max-width: 450px) {
+  .show-out {
+    display: none;
+  }
+  .show-in {
+    display: block;
+  }
+  .top-sec {
+    margin-left: 45px;
+    margin-top: -44px;
+  }
+  .first-para {
+    line-height: 5px;
+  }
+  .card2-mob {
+    width: 85%;
+    height: 440px;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 50px;
+    margin-left: 8%;
+  }
+  .card2-mob-img {
+    position: absolute;
+    width: 70%;
+    height: 325px;
+    margin-top: 28px;
+    object-fit: cover;
+  }
+  .card2-mob-text {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #353535;
+    margin-top: 358px;
+    margin-left: 0px;
+  }
+  .mob-price {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    color: #333333;
+    margin-top: 30px;
+  }
+  .homecard-mob-button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    outline: none;
+    border-radius: 10%;
+    background-color: #4847bc !important;
+    float: right;
+    margin-top: 30%;
+  }
+  .mob-details {
+    margin-top: -15px;
+    text-decoration: underline;
+  }
+  .mod-title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #353535;
+  }
+  .modal-header {
+    padding: 0px !important;
+    border-bottom: none !important;
+  }
+  .mod-buttons {
+    display: flex;
+    margin-top: 20px !important;
   }
 }

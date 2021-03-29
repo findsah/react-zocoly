@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dropdown } from "react-bootstrap";
+import { Container, Dropdown } from "react-bootstrap";
 import "../CSS/home.css";
 import Accordion from "./utils/homeAccordion";
 //import HomeCard from "./utils/homeCard";
@@ -41,7 +41,7 @@ class HomeContent extends Component {
     const productName = product[0].name;
 
     const data = await getitems(productName);
-    console.log(data);
+    // console.log(data);
     this.setState({ items: data });
   };
 
@@ -93,16 +93,16 @@ class HomeContent extends Component {
 
                 <Dropdown.Menu>
                   <Dropdown.Item
-                    eventKey="title"
+                    eventKey="Title"
                     onSelect={(eventKey) => this.handleSelect(eventKey)}
                   >
-                    title
+                    Title
                   </Dropdown.Item>
                   <Dropdown.Item
-                    eventKey="price"
+                    eventKey="Price"
                     onSelect={(eventKey) => this.handleSelect(eventKey)}
                   >
-                    price
+                    Price
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
@@ -119,6 +119,10 @@ class HomeContent extends Component {
                 <AccordModal
                   show={this.state.modalShow}
                   onHide={() => this.setState({ modalShow: false })}
+                  handleCategoriesClick={this.handleCategoriesClick}
+                  handleSizeClick={this.handleSizeClick}
+                  handleDiscountClick={this.handleDiscountClick}
+                  handleColorClick={this.handleColorClick}
                 />
               </div>
             </div>
@@ -163,7 +167,7 @@ class HomeContent extends Component {
                           />
                         </div>
                         <div>
-                          <p className="card2-text"> {item.title} </p>
+                          <p className="card2-text">{item.Title} </p>
                         </div>
 
                         {/* cards part two */}
@@ -178,7 +182,7 @@ class HomeContent extends Component {
                               size={18}
                               activeColor="#ffd700"
                             />
-                            <h2 className="price">${item.price}</h2>
+                            <h2 className="price">${item.Price}</h2>
                           </div>
                           <div className="content2">
                             <button className="homecard-button">
@@ -224,14 +228,24 @@ function AccordModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header className="mybut" closeButton closeLabel="">
-        <Modal.Title id="contained-modal-title-vcenter">Filters</Modal.Title>
-      </Modal.Header>
+      <Container>
+        <Modal.Header className="mybut mt-2" closeButton closeLabel="">
+          <Modal.Title id="contained-modal-title-vcenter">Filters</Modal.Title>
+        </Modal.Header>
+      </Container>
+      <hr className="mod-line" />
       <Modal.Body scrollable="true">
-        <Accordion />
+        <Accordion
+          handleCategoriesClick={props.handleCategoriesClick}
+          handleSizeClick={props.handleSizeClick}
+          handleDiscountClick={props.handleDiscountClick}
+          handleColorClick={props.handleColorClick}
+        />
       </Modal.Body>
       <Modal.Footer>
-        <button className="but-filter"> Apply Filter </button>
+        <button className="but-filter" onClick={props.onHide}>
+          Apply Filter
+        </button>
       </Modal.Footer>
     </Modal>
   );

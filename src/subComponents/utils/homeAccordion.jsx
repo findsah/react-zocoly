@@ -20,7 +20,7 @@ class Accordion extends Component {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
               <button
-                className="accordion-button"
+                className="accordion-button p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
@@ -49,10 +49,11 @@ class Accordion extends Component {
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingTwo">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo"
@@ -75,10 +76,11 @@ class Accordion extends Component {
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingThree">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseThree"
@@ -110,10 +112,11 @@ class Accordion extends Component {
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFour">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFour"
@@ -148,10 +151,11 @@ class Accordion extends Component {
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFive">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFive"
@@ -176,6 +180,7 @@ class Accordion extends Component {
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
         </div>
       </>
     );

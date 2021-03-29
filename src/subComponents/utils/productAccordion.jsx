@@ -4,13 +4,15 @@ import "../../CSS/home.css";
 class ProductAccordion extends Component {
   state = {};
   render() {
+    const { data } = this.props;
+    // console.log(data.SKU);
     return (
       <>
         <div className="accordion" aria-expanded="false" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
               <button
-                className="accordion-button"
+                className="accordion-button p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
@@ -27,18 +29,15 @@ class ProductAccordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p>
-                  Unknown printer took a galley of type and scrambled it to make
-                  a type specimen book. It has survived not only five centuries,
-                  but also ged.medium brown woodgrain.
-                </p>
+                <p>{data.details}</p>
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingTwo">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo"
@@ -55,14 +54,15 @@ class ProductAccordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> {data.dimensions} </p>
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingThree">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseThree"
@@ -79,14 +79,15 @@ class ProductAccordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> {data.specifications} </p>
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFour">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFour"
@@ -103,14 +104,15 @@ class ProductAccordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> {data.shipping_returns} </p>
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFive">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed p-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFive"
@@ -127,10 +129,11 @@ class ProductAccordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> Accordion body </p>
+                <p> {data.question_answer} </p>
               </div>
             </div>
           </div>
+          <hr className="accord-line" />
         </div>
       </>
     );

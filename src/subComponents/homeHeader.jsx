@@ -35,7 +35,7 @@ class Header extends Component {
                   <div className="product-content">
                     <div className="content1">
                       <h3 className="product-h3">{card.product_name}</h3>
-                      <h2 className="product-h2">${card.price}</h2>
+                      <h2 className="product-h2">${card.Price}</h2>
                     </div>
                     <div className="content2">
                       <button className="content2-button">

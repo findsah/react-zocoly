@@ -55,6 +55,7 @@
 .card-image {
   width: 100%;
   height: 280px;
+  object-fit: cover;
 }
 
 .product-content {
@@ -88,7 +89,7 @@
   border: none;
   outline: none;
   border-radius: 10%;
-  background-color: #4847bc;
+  background-color: #4847bc !important;
   margin-top: 80%;
 }
 
@@ -175,11 +176,10 @@
 
 .home-card2-img {
   position: absolute;
-  /* width: 230px;
-  height: 200px; */
   width: 230px;
-  height: 270px;
+  height: 275px;
   margin-top: 28px;
+  object-fit: cover;
 }
 
 .card2-text {
@@ -189,7 +189,7 @@
   font-size: 18px;
   line-height: 26px;
   color: #353535;
-  margin-top: 230px;
+  margin-top: 300px;
   margin-left: 5px;
 }
 
@@ -202,7 +202,7 @@
 .homecard-content {
   display: flex;
   justify-content: space-between;
-  margin-top: 35px;
+  margin-top: -49px;
 }
 
 .rating {
@@ -233,7 +233,7 @@
   border: none;
   outline: none;
   border-radius: 10%;
-  background-color: #4847bc;
+  background-color: #4847bc !important;
   float: right;
   margin-top: 80%;
 }
@@ -362,7 +362,7 @@
     margin-left: 10px;
   }
   .dropdown-menu.show {
-    width: 120px !important;
+    width: 166px !important;
   }
 }
 
@@ -371,11 +371,16 @@
   border: none;
   color: white;
   height: 50px;
-  background-color: #01355b;
+  background-color: #01355b !important;
 }
 
 .no {
   cursor: pointer;
+}
+@media screen and (max-width: 450px) {
+  .no:active {
+    background-color: gray;
+  }
 }
 
 a,
@@ -403,4 +408,24 @@ a:active {
   width: 230px;
   height: 200px;
   margin-top: 28px;
+}
+
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: white;
+}
+
+.accord-line {
+  height: 2px !important;
+  opacity: 0.6 !important;
+  color: black;
+}
+
+.mod-line {
+  margin: 0px !important;
 }
