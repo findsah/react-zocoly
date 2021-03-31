@@ -1,15 +1,17 @@
 .product-image {
-  width: 855px;
+  width: 822px;
   height: 600px;
   /* background-color: wheat; */
+  object-fit: cover;
   /* transform: rotate(-30deg); */
 }
 
 .products-image {
-  width: 439px;
-  height: 540px;
+  width: 433px;
+  height: 542px;
   margin-top: 15px;
   object-fit: cover;
+  padding-right: 32px;
 }
 
 .first-para {
@@ -21,6 +23,12 @@
   display: flex;
   align-items: center;
   color: #828282;
+}
+
+.greator {
+  height: 18px;
+  width: 10px;
+  margin: 0 18px !important;
 }
 
 .prod-name {
@@ -67,20 +75,20 @@
 }
 
 .discount-tag {
-  width: 25px;
+  width: 28px;
   height: 28px;
+  margin-left: 8px;
 }
 
 .form-select1 {
-  width: 90%;
+  width: 100%;
   height: 55px;
-  margin-right: 82px;
   background: white;
   display: block;
-  border: 1px solid #828282;
+  border: 1px solid #828282 !important;
   box-sizing: border-box;
   border-radius: 6px;
-  margin-left: 10px;
+  padding-left: 6px;
 }
 
 .form-select1:focus {
@@ -90,8 +98,6 @@
 .form-select2 {
   width: 100%;
   height: 55px;
-  margin-left: 30px;
-  border-radius: 5px;
   background: white;
   display: block;
   border: 1px solid #828282;
@@ -143,13 +149,13 @@
 }
 
 .heart-button {
-  width: 60px;
+  width: 80px;
   height: 80px;
   background: #ffffff;
   border: 1px solid #4f4f4f !important;
   box-sizing: border-box;
   border-radius: 6px;
-  margin-left: 64px;
+  margin-left: 44px;
 }
 
 .heart-button:focus {
@@ -219,15 +225,23 @@
   color: #353535;
 }
 
+.heart-image {
+  height: 28px;
+  width: 28px;
+}
+
 @media only screen and (max-width: 1300px) {
   /*Tablets [601px -> 1200px]*/
   .product-image {
     width: 100%;
     height: 25%;
+    object-fit: cover;
   }
   .products-image {
     width: 50%;
     height: 50%;
+    padding-right: 0;
+    object-fit: cover;
   }
 }
 
@@ -245,27 +259,6 @@
   .form-select2 {
     width: 80%;
     margin-left: 20px;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .form-select3 {
-    width: 78%;
-  }
-}
-
-@media only screen and (max-width: 415px) {
-  .form-select1 {
-    width: 85%;
-    margin-right: 0;
-  }
-
-  .form-select2 {
-    width: 75%;
-  }
-
-  .form-select3 {
-    width: 100%;
   }
 }
 
@@ -291,6 +284,9 @@
   .show-in {
     display: block;
   }
+  .start {
+    padding: 15px !important;
+  }
   .top-sec {
     margin-left: 45px;
     margin-top: -44px;
@@ -298,20 +294,25 @@
   .first-para {
     line-height: 5px;
   }
+  .for-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .card2-mob {
-    width: 85%;
+    width: 300px;
     height: 440px;
     border: 1px solid #e8e8e8;
     box-sizing: border-box;
     border-radius: 15px;
     padding: 15px;
-    margin-bottom: 50px;
-    margin-left: 8%;
+    margin-bottom: 200px;
   }
   .card2-mob-img {
     position: absolute;
-    width: 70%;
-    height: 325px;
+    width: 267px;
+    height: 315px;
     margin-top: 28px;
     object-fit: cover;
   }
@@ -319,20 +320,20 @@
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 17px;
+    /* line-height: 26px; */
     color: #353535;
-    margin-top: 358px;
+    margin-top: 353px;
     margin-left: 0px;
   }
   .mob-price {
     font-family: Poppins;
     font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 26px;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 29px;
     color: #333333;
-    margin-top: 30px;
+    margin-top: 6px;
   }
   .homecard-mob-button {
     width: 44px;
@@ -342,10 +343,10 @@
     border-radius: 10%;
     background-color: #4847bc !important;
     float: right;
-    margin-top: 30%;
+    margin-top: -21%;
   }
   .mob-details {
-    margin-top: -15px;
+    margin-top: -10px;
     text-decoration: underline;
   }
   .mod-title {
@@ -355,6 +356,7 @@
     font-size: 28px;
     line-height: 34px;
     color: #353535;
+    padding-right: 0px !important;
   }
   .modal-header {
     padding: 0px !important;
@@ -363,5 +365,33 @@
   .mod-buttons {
     display: flex;
     margin-top: 20px !important;
+  }
+  .closee-but {
+    width: 28px;
+    height: 28px;
+    float: right;
+  }
+  .prod-id {
+    font-weight: bold;
+  }
+  .prod-price {
+    font-size: 30px;
+  }
+  .cart-button {
+    width: 100%;
+    height: 60px;
+  }
+  .heart-button {
+    height: 60px;
+    margin-left: 20px;
+  }
+  .heart-image {
+    height: 28px;
+    width: 28px;
+    float: right;
+  }
+  .heart-imag {
+    height: 28px;
+    width: 28px;
   }
 }

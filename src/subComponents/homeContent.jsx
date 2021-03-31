@@ -6,8 +6,8 @@ import Accordion from "./utils/homeAccordion";
 import { Pagination, Col } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
-import Heart from "react-animated-heart";
-//import product from "../assets/template2assets/images/product.png";
+//import Heart from "react-animated-heart";
+import Heart from "../assets/template2assets/icons/heart.png";
 import whitecart from "../assets/template2assets/icons/white-cart.png";
 import {
   getProduct,
@@ -19,21 +19,17 @@ import {
   colorItems,
 } from "./../services/callingServices";
 import { Link } from "react-router-dom";
+import { GrFormClose } from "react-icons/gr";
 
 class HomeContent extends Component {
   state = {
     sortType: "Sort By",
     modalShow: false,
-    isClick: false,
     items: [],
   };
 
   ratingChanged = (newRating) => {
     console.log(newRating);
-  };
-
-  handleClick = (e) => {
-    this.setState({ isClick: !this.state.isClick });
   };
 
   componentDidMount = async () => {
@@ -153,11 +149,7 @@ class HomeContent extends Component {
                     >
                       <div className="home-card2">
                         <div>
-                          <Heart
-                            className="ai-out"
-                            isClick={this.state.isClick}
-                            onClick={(e) => this.handleClick(e)}
-                          />
+                          <img className="ai-out" src={Heart} alt="heart-pic" />
                         </div>
                         <div>
                           <img
@@ -227,13 +219,18 @@ function AccordModal(props) {
       size="sm"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      scrollable={true}
     >
+      {/* closeButton closeLabel="" */}
       <Container>
-        <Modal.Header className="mybut mt-2" closeButton closeLabel="">
+        <Modal.Header className="mybut mt-2">
           <Modal.Title id="contained-modal-title-vcenter">Filters</Modal.Title>
+          <GrFormClose className="close-but" onClick={props.onHide} />
         </Modal.Header>
       </Container>
-      <hr className="mod-line" />
+      <Container>
+        <hr className="mod-line" />
+      </Container>
       <Modal.Body scrollable="true">
         <Accordion
           handleCategoriesClick={props.handleCategoriesClick}

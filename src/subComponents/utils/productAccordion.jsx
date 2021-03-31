@@ -33,7 +33,7 @@ class ProductAccordion extends Component {
               </div>
             </div>
           </div>
-          <hr className="accord-line" />
+          <hr className="" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingTwo">
               <button
@@ -58,7 +58,7 @@ class ProductAccordion extends Component {
               </div>
             </div>
           </div>
-          <hr className="accord-line" />
+          <hr className="" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingThree">
               <button
@@ -83,7 +83,7 @@ class ProductAccordion extends Component {
               </div>
             </div>
           </div>
-          <hr className="accord-line" />
+          <hr className="" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFour">
               <button
@@ -108,7 +108,7 @@ class ProductAccordion extends Component {
               </div>
             </div>
           </div>
-          <hr className="accord-line" />
+          <hr className="" />
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFive">
               <button
@@ -133,7 +133,7 @@ class ProductAccordion extends Component {
               </div>
             </div>
           </div>
-          <hr className="accord-line" />
+          <hr className="" />
         </div>
       </>
     );

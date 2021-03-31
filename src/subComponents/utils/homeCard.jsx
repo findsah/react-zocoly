@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import product from "../../assets/template2assets/images/product.png";
 import whitecart from "../../assets/template2assets/icons/white-cart.png";
+import Heart from "../../assets/template2assets/icons/heart.png";
 import ReactStars from "react-rating-stars-component";
-import Heart from "react-animated-heart";
+//import Heart from "react-animated-heart";
 import "../../CSS/home.css";
 
 class HomeCard extends Component {
@@ -10,9 +11,9 @@ class HomeCard extends Component {
     isClick: false,
   };
 
-  ratingChanged = (newRating) => {
-    console.log(newRating);
-  };
+  // ratingChanged = (newRating) => {
+  //   console.log(newRating);
+  // };
 
   handleClick = (e) => {
     this.setState({ isClick: !this.state.isClick });
@@ -21,11 +22,7 @@ class HomeCard extends Component {
     return (
       <div className="card2">
         <div>
-          <Heart
-            className="ai-out"
-            isClick={this.state.isClick}
-            onClick={(e) => this.handleClick(e)}
-          />
+          <img className="ai-out" src={Heart} alt="Heart" />
         </div>
         <div>
           <img className="card2-img" src={product} alt="product-pic" />

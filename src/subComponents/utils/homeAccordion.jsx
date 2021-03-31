@@ -172,15 +172,15 @@ class Accordion extends Component {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p> name </p>
-                <p> data </p>
-                <p> type </p>
-                <p> size </p>
-                <p> tags </p>
+                <p className="no"> name </p>
+                <p className="no"> data </p>
+                <p className="no"> type </p>
+                <p className="no"> size </p>
+                <p className="no"> tags </p>
               </div>
             </div>
           </div>
-          <hr className="accord-line" />
+          <hr className="accord-last-line" />
         </div>
       </>
     );

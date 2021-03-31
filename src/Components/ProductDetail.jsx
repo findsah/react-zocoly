@@ -7,11 +7,14 @@ import product from "../assets/template2assets/images/product.png";
 // import product3 from "../assets/template2assets/images/product3.png";
 // import product4 from "../assets/template2assets/images/product4.png";
 import tag from "../assets/template2assets/icons/tag.png";
-import Heart from "react-animated-heart";
+//import Heart from "react-animated-heart";
+import HeartO from "../assets/template2assets/icons/heart.png";
 import ReactStars from "react-rating-stars-component";
 import ProductAccordion from "../subComponents/utils/productAccordion";
 import HomeCard from "./../subComponents/utils/homeCard";
-import { Container, Modal, Row } from "react-bootstrap";
+import { Container, Modal, Row, Col } from "react-bootstrap";
+import { GrFormClose } from "react-icons/gr";
+import { FaGreaterThan } from "react-icons/fa";
 
 class ProductDetail extends Component {
   state = {
@@ -74,7 +77,8 @@ class ProductDetail extends Component {
             {/* left line code */}
             <div className="col-lg-4 col-md-12 col-sm-12">
               <div className="first-para">
-                {item.collection_name} {">"} {item.product_name}
+                {item.collection_name} <FaGreaterThan className="greator" />
+                {item.product_name}
               </div>
 
               <div className="prod-name mt-4">{item.Title}</div>
@@ -88,21 +92,21 @@ class ProductDetail extends Component {
                 </div>
               </div>
 
-              <div className="prod-details mt-5">
-                <div className="row">
+              <Row className="mt-5">
+                <Col>
                   <label className="form-label">Size</label>
                   <select
                     className="form-select1"
                     aria-label="Default select example"
                   >
                     {item_size.map((size, index) => (
-                      <option key={index} value={size.name}>
+                      <option className="options" key={index} value={size.name}>
                         {size.name}
                       </option>
                     ))}
                   </select>
-                </div>
-                <div className="row">
+                </Col>
+                <Col>
                   <label className="form-label">Color</label>
                   <select
                     className="form-select2"
@@ -114,8 +118,8 @@ class ProductDetail extends Component {
                       </option>
                     ))}
                   </select>
-                </div>
-              </div>
+                </Col>
+              </Row>
 
               <div className="mt-5">
                 <label className="form-label">Quantity</label>
@@ -124,9 +128,8 @@ class ProductDetail extends Component {
                   aria-label="Default select example"
                 >
                   <option selected>1</option>
-                  <option value="1">2</option>
-                  <option value="2">3</option>
-                  <option value="3">4</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
                 </select>
               </div>
               <div className="buttons">
@@ -136,11 +139,7 @@ class ProductDetail extends Component {
                 </button>
 
                 <button className="heart-button">
-                  <Heart
-                    className="ai-out"
-                    isClick={this.state.isClick}
-                    onClick={(e) => this.handleClick(e)}
-                  />
+                  <img className="heart-image" src={HeartO} alt="heart" />
                 </button>
               </div>
               <div className="rating-etc">
@@ -168,16 +167,16 @@ class ProductDetail extends Component {
           <div className="row part-3">
             <p className="text-3"> You may also like </p>
             <div className="row">
-              <div className="col-lg-3">
+              <div className="col-lg-3 col-md-6 col-sm-12">
                 <HomeCard />
               </div>
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <HomeCard />
               </div>
-              <div className="col-lg-3">
+              <div className="col-lg-3 col-md-6 col-sm-12">
                 <HomeCard />
               </div>
-              <div className="col-lg-3">
+              <div className="col-lg-3 col-md-6 col-sm-12">
                 <HomeCard />
               </div>
             </div>
@@ -188,17 +187,14 @@ class ProductDetail extends Component {
           <div className="top-sec">
             <div className="prod-name">{item.Title}</div>
             <div className="first-para">
-              {item.collection_name} {">"} {item.product_name}
+              {item.collection_name} <FaGreaterThan className="greator" />
+              {item.product_name}
             </div>
           </div>
-          <div className="container mt-4">
+          <div className="container mt-4 for-card">
             <div className="card2-mob">
               <div>
-                <Heart
-                  className="ai-out"
-                  isClick={this.state.isClick}
-                  onClick={(e) => this.handleClick(e)}
-                />
+                <img className="heart-image" src={HeartO} alt="heart" />
               </div>
               <div>
                 <img
@@ -222,7 +218,7 @@ class ProductDetail extends Component {
                       this.setState({ modalShow: !this.state.modalShow })
                     }
                   >
-                    See Details{" "}
+                    See Details
                   </p>
                   <ProductModal
                     show={this.state.modalShow}
@@ -260,9 +256,10 @@ function ProductModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Container>
-        <Modal.Header className="mybut" closeButton closeLabel="">
+      <Container className="start">
+        <Modal.Header className="mybut">
           <div className="mod-title mt-2">{props.data.Title}</div>
+          <GrFormClose className="closee-but" onClick={props.onHide} />
         </Modal.Header>
         <Row>
           <div className="prod-id"> SKU# {props.data.SKU} </div>
@@ -276,8 +273,8 @@ function ProductModal(props) {
             </div>
           </div>
         </Row>
-        <div className="prod-details mt-2">
-          <div className="row">
+        <Row className="mt-3">
+          <Col>
             <label className="form-label">Size</label>
             <select
               className="form-select1"
@@ -289,9 +286,9 @@ function ProductModal(props) {
                 </option>
               ))}
             </select>
-          </div>
-          <div className="row">
-            <label className="form-label">Color</label>
+          </Col>
+          <Col>
+            <label className="form-label label-mar">Color</label>
             <select
               className="form-select2"
               aria-label="Default select example"
@@ -302,15 +299,15 @@ function ProductModal(props) {
                 </option>
               ))}
             </select>
-          </div>
-        </div>
+          </Col>
+        </Row>
+
         <div className="mt-2">
           <label className="form-label">Quantity</label>
           <select className="form-select3" aria-label="Default select example">
             <option selected>1</option>
-            <option value="1">2</option>
-            <option value="2">3</option>
-            <option value="3">4</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </select>
         </div>
         <div className="mod-buttons mb-2">
@@ -320,93 +317,10 @@ function ProductModal(props) {
           </button>
 
           <button className="heart-button">
-            <Heart
-              className="ai-out"
-              isClick={props.isClick}
-              onClick={props.handleClick}
-            />
+            <img className="heart-imag" src={HeartO} alt="heart" />
           </button>
         </div>
       </Container>
-
-      {/* <div className="first-para">
-                {item.collection_name} {">"} {item.product_name}
-              </div>
-
-              <div className="prod-name mt-4">{item.Title}</div>
-              <div className="prod-id mt-2"> SKU# {item.SKU} </div>
-
-              <div className="prod-details mt-5">
-                <div className="prod-price">${item.Price}</div>
-                <div className="prod-discount">
-                  <img className="discount-tag" src={tag} alt="discount-tag" />
-                  {item.discount}% off
-                </div>
-              </div>
-
-              <div className="prod-details mt-5">
-                <div className="row">
-                  <label className="form-label">Size</label>
-                  <select
-                    className="form-select1"
-                    aria-label="Default select example"
-                  >
-                    {item_size.map((size, index) => (
-                      <option key={index} value={size.name}>
-                        {size.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="row">
-                  <label className="form-label">Color</label>
-                  <select
-                    className="form-select2"
-                    aria-label="Default select example"
-                  >
-                    {item_color.map((color, index) => (
-                      <option key={index} value={color.name}>
-                        {color.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="mt-5">
-                <label className="form-label">Quantity</label>
-                <select
-                  className="form-select3"
-                  aria-label="Default select example"
-                >
-                  <option selected>1</option>
-                  <option value="1">2</option>
-                  <option value="2">3</option>
-                  <option value="3">4</option>
-                </select>
-              </div>
-              <div className="buttons">
-                <button className="cart-button">
-                  Add to Cart
-                  <img className="cart-img" src={whitecart} alt="white-cart" />
-                </button>
-
-                <button className="heart-button">
-                  <Heart
-                    className="ai-out"
-                    isClick={this.state.isClick}
-                    onClick={(e) => this.handleClick(e)}
-                  />
-                </button>
-              </div> */}
-      {/* <Modal.Body scrollable="true">
-        <p> Hamza </p>
-      </Modal.Body>
-      <Modal.Footer>
-        <button className="but-filter" onClick={props.onHide}>
-          Apply Filter
-        </button>
-      </Modal.Footer> */}
     </Modal>
   );
 }

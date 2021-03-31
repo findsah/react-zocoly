@@ -71,6 +71,7 @@
   line-height: 26px;
   color: #333333;
   margin-top: 25px;
+  margin-bottom: 0;
 }
 
 .product-h2 {
@@ -80,7 +81,7 @@
   font-size: 22px;
   line-height: 26px;
   color: #333333;
-  margin-top: 0 !important;
+  margin-top: -5 !important;
 }
 
 .content2-button {
@@ -90,7 +91,7 @@
   outline: none;
   border-radius: 10%;
   background-color: #4847bc !important;
-  margin-top: 80%;
+  margin-top: 72%;
 }
 
 .content2-img {
@@ -153,14 +154,25 @@
 .accordion-button {
   font-family: Poppins;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 34px;
   color: #333333;
+  border: none !important;
 }
 
 .accordion-button:not(.collapsed)::after {
   transform: rotate(180deg) !important;
+}
+
+.accordion-collapse {
+  border: none !important;
+  border-width: none !important;
+}
+.accordion-body {
+  /* padding: 0 10px; */
+  /* padding-left: 0; */
+  font-size: 14px;
 }
 
 /* home card2 css */
@@ -177,7 +189,7 @@
 .home-card2-img {
   position: absolute;
   width: 230px;
-  height: 275px;
+  height: 250px;
   margin-top: 28px;
   object-fit: cover;
 }
@@ -189,20 +201,19 @@
   font-size: 18px;
   line-height: 26px;
   color: #353535;
-  margin-top: 300px;
-  margin-left: 5px;
+  margin-top: 278px;
 }
 
 .ai-out {
-  height: 25px;
-  width: 25px;
+  height: 28px;
+  width: 28px;
   float: right;
 }
 
 .homecard-content {
   display: flex;
   justify-content: space-between;
-  margin-top: -49px;
+  margin-top: -25px;
 }
 
 .rating {
@@ -212,7 +223,7 @@
   font-size: 16px;
   color: #333333;
   margin-top: 25px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   margin-bottom: 0 !important;
 }
 
@@ -224,7 +235,7 @@
   line-height: 26px;
   color: #333333;
   margin-top: 0 !important;
-  margin-left: 5px;
+  /* margin-left: 5px; */
 }
 
 .homecard-button {
@@ -235,7 +246,7 @@
   border-radius: 10%;
   background-color: #4847bc !important;
   float: right;
-  margin-top: 80%;
+  margin-top: 72%;
 }
 
 .kFtqvK {
@@ -317,7 +328,21 @@
   margin-right: 3%;
 }
 
+@media only screen and (max-width: 767px) {
+  .res {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 @media only screen and (max-width: 450px) {
+  .res {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .filter-but {
     display: inline-block !important;
 
@@ -344,10 +369,6 @@
     /* margin-bottom: 67px; */
   }
 
-  .home-card2 {
-    margin-left: 10%;
-  }
-
   .modal-content {
     position: relative;
     display: flex;
@@ -360,9 +381,36 @@
     border-radius: 10px;
     outline: 0;
     margin-left: 10px;
+    animation: animatebottom 0.4s !important;
+    margin-bottom: 40%;
+  }
+  @keyframes animatebottom {
+    from {
+      bottom: -300px;
+      opacity: 0;
+    }
+
+    to {
+      bottom: 0;
+      opacity: 1;
+    }
   }
   .dropdown-menu.show {
     width: 166px !important;
+  }
+  .modal-title {
+    line-height: 2.5;
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .accord-last-line {
+    display: none;
+  }
+  .close-but {
+    float: right;
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -376,6 +424,7 @@
 
 .no {
   cursor: pointer;
+  margin: 10px !important;
 }
 @media screen and (max-width: 450px) {
   .no:active {
@@ -403,29 +452,28 @@ a:active {
 
 .card2-img {
   position: absolute;
-  /* width: 230px;
-  height: 200px; */
   width: 230px;
-  height: 200px;
+  height: 190px;
   margin-top: 28px;
-}
-
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled),
-button:not(:disabled) {
-  cursor: pointer;
-  outline: none;
-  border: none;
-  background: white;
+  object-fit: cover;
 }
 
 .accord-line {
-  height: 2px !important;
-  opacity: 0.6 !important;
-  color: black;
+  height: 1px !important;
+  opacity: 0.2 !important;
+  color: black !important;
+  margin: 8px 0 !important;
+}
+.accord-last-line {
+  height: 1px !important;
+  opacity: 0.2 !important;
+  color: black !important;
+  margin: 8px 0 !important;
 }
 
 .mod-line {
+  height: 2px !important;
+  opacity: 0.2 !important;
+  color: black !important;
   margin: 0px !important;
 }
