@@ -132,7 +132,7 @@
 }
 
 .cart-button {
-  width: 292px;
+  width: 100% !important;
   height: 80px;
   background: #5d3a84 !important;
   border-radius: 6px;
