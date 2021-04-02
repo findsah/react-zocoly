@@ -2,29 +2,25 @@ import React, { Component } from "react";
 import "../CSS/productdetail.css";
 import whitecart from "../assets/template2assets/icons/white-cart.png";
 import product from "../assets/template2assets/images/product.png";
-//import product1 from "../assets/template2assets/images/product1.png";
-// import product2 from "../assets/template2assets/images/product2.png";
-// import product3 from "../assets/template2assets/images/product3.png";
-// import product4 from "../assets/template2assets/images/product4.png";
 import tag from "../assets/template2assets/icons/tag.png";
-//import Heart from "react-animated-heart";
-import HeartO from "../assets/template2assets/icons/heart.png";
+//import HeartO from "../assets/template2assets/icons/heart.png";
 import ReactStars from "react-rating-stars-component";
 import ProductAccordion from "../subComponents/utils/productAccordion";
 import HomeCard from "./../subComponents/utils/homeCard";
 import { Container, Modal, Row, Col } from "react-bootstrap";
 import { GrFormClose } from "react-icons/gr";
 import { FaGreaterThan } from "react-icons/fa";
+import Heart from "react-heart";
 
 class ProductDetail extends Component {
   state = {
     modalShow: false,
-    isClick: false,
+    active: false,
     productItem: JSON.parse(localStorage.getItem("item")),
   };
 
   handleClick = (e) => {
-    this.setState({ isClick: !this.state.isClick });
+    this.setState({ active: !this.state.active });
   };
 
   ratingChanged = (newRating) => {
@@ -139,12 +135,20 @@ class ProductDetail extends Component {
                 </button>
 
                 <button className="heart-button">
-                  <img className="heart-image" src={HeartO} alt="heart" />
+                  <Heart
+                    className="heart-image"
+                    isActive={this.state.active}
+                    onClick={() =>
+                      this.setState({ active: !this.state.active })
+                    }
+                  />
+                  {/* <img className="heart-image" src={HeartO} alt="heart" /> */}
                 </button>
               </div>
               <div className="rating-etc">
                 <ReactStars
                   classNames=""
+                  value={4}
                   count={5}
                   onChange={this.ratingChanged}
                   size={18}
@@ -194,7 +198,12 @@ class ProductDetail extends Component {
           <div className="container mt-4 for-card">
             <div className="card2-mob">
               <div>
-                <img className="heart-image" src={HeartO} alt="heart" />
+                {/* <img className="heart-image" src={HeartO} alt="heart" /> */}
+                <Heart
+                  className="heart-image"
+                  isActive={this.state.active}
+                  onClick={() => this.setState({ active: !this.state.active })}
+                />
               </div>
               <div>
                 <img
@@ -226,7 +235,7 @@ class ProductDetail extends Component {
                     data={item}
                     item_size={item_size}
                     item_color={item_color}
-                    isClick={this.state.isClick}
+                    isActive={this.state.active}
                     handleClick={this.handleClick}
                   />
                 </div>
@@ -317,7 +326,12 @@ function ProductModal(props) {
           </button>
 
           <button className="heart-button">
-            <img className="heart-imag" src={HeartO} alt="heart" />
+            {/* <img className="heart-imag" src={HeartO} alt="heart" /> */}
+            <Heart
+              className="heart-imag"
+              isActive={props.isActive}
+              onClick={props.handleClick}
+            />
           </button>
         </div>
       </Container>

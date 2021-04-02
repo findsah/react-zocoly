@@ -2,13 +2,8 @@ import React, { Component } from "react";
 import { Container, Dropdown } from "react-bootstrap";
 import "../CSS/home.css";
 import Accordion from "./utils/homeAccordion";
-//import HomeCard from "./utils/homeCard";
-import { Pagination, Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import ReactStars from "react-rating-stars-component";
-//import Heart from "react-animated-heart";
-import Heart from "../assets/template2assets/icons/heart.png";
-import whitecart from "../assets/template2assets/icons/white-cart.png";
 import {
   getProduct,
   getitems,
@@ -18,24 +13,21 @@ import {
   onSaleItems,
   colorItems,
 } from "./../services/callingServices";
-import { Link } from "react-router-dom";
 import { GrFormClose } from "react-icons/gr";
+import Product from "./Product";
+import ReactPaginate from "react-paginate";
 
 class HomeContent extends Component {
   state = {
     sortType: "Sort By",
     modalShow: false,
     items: [],
-  };
-
-  ratingChanged = (newRating) => {
-    console.log(newRating);
+    pageNumber: 0,
   };
 
   componentDidMount = async () => {
     const product = await getProduct();
     const productName = product[0].name;
-
     const data = await getitems(productName);
     // console.log(data);
     this.setState({ items: data });
@@ -56,32 +48,42 @@ class HomeContent extends Component {
 
   handleSizeClick = async (sizeValue) => {
     const data = await sizeItems(sizeValue);
-    console.log(data);
+    // console.log(data);
     this.setState({ items: data });
   };
 
   handleDiscountClick = async () => {
     const data = await onSaleItems();
-    console.log(data);
+    // console.log(data);
     this.setState({ items: data });
   };
 
   handleColorClick = async (colorValue) => {
     const data = await colorItems(colorValue);
-    console.log(data);
+    // console.log(data);
     this.setState({ items: data });
+  };
+
+  handlePageChange = ({ selected }) => {
+    //console.log(this.state.pageNumber);
+    this.setState({ pageNumber: selected });
   };
 
   render() {
     const { items } = this.state;
+    const itemsPerPage = 3;
+    const pagesVisited = this.state.pageNumber * itemsPerPage;
+    const pageCount = Math.ceil(items.length / itemsPerPage);
+    // console.log(pageCount);
+
     return (
       <>
         <div className="container mycont">
-          <div className="row">
+          <div className="row dlt-mar">
             <div className="col-md-6 col-sm-12">
               <p className=" prod-head">439 Products</p>
             </div>
-            <div className="col-md-6 col-sm-12 mb-3">
+            <div className="col-md-6 col-sm-12 mb-3 filter-start">
               <Dropdown>
                 <Dropdown.Toggle variant="" id="dropdown-basic">
                   {this.state.sortType}
@@ -125,9 +127,9 @@ class HomeContent extends Component {
           </div>
         </div>
 
-        {/*  accordion and cards */}
+        {/* accordion and cards */}
         <div className="container mycont">
-          <div className="row">
+          <div className="row dlt-mar">
             <div className="col-lg-3 col-md-12 col-sm-12 accordiana">
               <Accordion
                 handleCategoriesClick={this.handleCategoriesClick}
@@ -138,70 +140,29 @@ class HomeContent extends Component {
             </div>
             <div className="col-lg-9 ">
               <div className="row">
-                {items.map((item, index) => (
-                  <div className="col-lg-4 col-md-6 col-sm-12 res" key={index}>
-                    <Link
-                      className="black-text hover"
-                      to={"/productdetail/" + item.id}
-                      onClick={() =>
-                        localStorage.setItem("item", JSON.stringify(item))
-                      }
-                    >
-                      <div className="home-card2">
-                        <div>
-                          <img className="ai-out" src={Heart} alt="heart-pic" />
-                        </div>
-                        <div>
-                          <img
-                            className="home-card2-img"
-                            src={`https://zocoly-backend.herokuapp.com${item.item_files[0].image}`}
-                            alt="product-pic"
-                          />
-                        </div>
-                        <div>
-                          <p className="card2-text">{item.Title} </p>
-                        </div>
-
-                        {/* cards part two */}
-
-                        <div className="homecard-content">
-                          <div className="content1">
-                            {/* <h3 className="rating">Rating</h3> */}
-                            <ReactStars
-                              classNames="rating"
-                              count={5}
-                              onChange={this.ratingChanged}
-                              size={18}
-                              activeColor="#ffd700"
-                            />
-                            <h2 className="price">${item.Price}</h2>
-                          </div>
-                          <div className="content2">
-                            <button className="homecard-button">
-                              <img
-                                className="content2-img"
-                                src={whitecart}
-                                alt="white-cart"
-                              />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
+                {items
+                  .slice(pagesVisited, pagesVisited + itemsPerPage)
+                  .map((item, index) => (
+                    <Product item={item} key={index} />
+                  ))}
               </div>
               <div className="row paginat">
                 <Col className="justify-content-center">
-                  <Pagination>
-                    <Pagination.Item>{1}</Pagination.Item>
-                    <Pagination.Item>{2}</Pagination.Item>
-                    <Pagination.Item>{3}</Pagination.Item>
-                    <Pagination.Ellipsis />
-
-                    <Pagination.Item>{15}</Pagination.Item>
-                    <Pagination.Item>{">"}</Pagination.Item>
-                  </Pagination>
+                  {itemsPerPage < 9 ? (
+                    <ReactPaginate
+                      previousLabel="<"
+                      nextLabel={">"}
+                      pageCount={pageCount}
+                      onPageChange={(e) => this.handlePageChange(e)}
+                      containerClassName={"pagination-buttons"}
+                      previousLinkClassName={"pag-prev-butt"}
+                      nextLinkClassName={"pag-next-butt"}
+                      disabledClassName={"pag-disabled"}
+                      activeClassName={"pag-active"}
+                    />
+                  ) : (
+                    <div></div>
+                  )}
                 </Col>
               </div>
             </div>
