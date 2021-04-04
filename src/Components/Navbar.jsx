@@ -5,10 +5,19 @@ import logo from "../assets/template2assets/icons/logo.png";
 import cart from "../assets/template2assets/icons/cart.png";
 import user from "../assets/template2assets/icons/user.png";
 import search from "../assets/template2assets/icons/search.png";
+import { FaGreaterThan } from "react-icons/fa";
+import { withRouter } from "react-router";
 
 class Topbar extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
+    const item = JSON.parse(localStorage.getItem("item"));
+    const pathname = this.props.history.location.pathname;
+
     return (
       <div className="main-navbar">
         <div className="container">
@@ -17,6 +26,17 @@ class Topbar extends Component {
               className="navbar-toggle"
               aria-controls="basic-navbar-nav"
             />
+            {pathname === `/productdetail/${item.id}` ? (
+              <div className="product-data">
+                <div className="prod-name">{item.Title}</div>
+                <div className="first-para">
+                  {item.collection_name} <FaGreaterThan className="greator" />
+                  {item.product_name}
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
             <Navbar.Brand className="navbar-brands" href="#home">
               <img src={logo} alt="logo" />
             </Navbar.Brand>
@@ -76,4 +96,4 @@ class Topbar extends Component {
   }
 }
 
-export default Topbar;
+export default withRouter(Topbar);

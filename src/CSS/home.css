@@ -3,7 +3,7 @@
   margin-left: 1%;
   width: 94%;
   background-color: #282788;
-  padding: 88px 30px;
+  padding: 88px 60px;
   margin-bottom: 3rem;
 }
 
@@ -27,6 +27,7 @@
   .showinscroll {
     height: 580px !important;
     justify-content: space-between !important;
+    padding: 88px 30px !important;
   }
   .col-card {
     margin-left: 68px !important;
@@ -479,8 +480,11 @@
       opacity: 1;
     }
   }
+  .dropdown-menu {
+    min-width: 7rem !important;
+  }
   .dropdown-menu.show {
-    width: 166px !important;
+    width: 126px !important;
   }
   .modal-title {
     line-height: 34px;

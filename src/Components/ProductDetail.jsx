@@ -9,8 +9,8 @@ import ProductAccordion from "../subComponents/utils/productAccordion";
 import HomeCard from "./../subComponents/utils/homeCard";
 import { Container, Modal, Row, Col } from "react-bootstrap";
 import { GrFormClose } from "react-icons/gr";
-import { FaGreaterThan } from "react-icons/fa";
 import Heart from "react-heart";
+import { FaGreaterThan } from "react-icons/fa";
 
 class ProductDetail extends Component {
   state = {
@@ -28,7 +28,10 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    console.log(this.state.productItem);
+    // console.log(this.state.productItem);
+    const pathname = window.location.pathname;
+    localStorage.setItem("pathname", pathname);
+    // console.log(pathname);
   }
 
   render() {
@@ -188,14 +191,7 @@ class ProductDetail extends Component {
         </div>
         {/* Mobile View */}
         <div className="show-in">
-          <div className="top-sec">
-            <div className="prod-name">{item.Title}</div>
-            <div className="first-para">
-              {item.collection_name} <FaGreaterThan className="greator" />
-              {item.product_name}
-            </div>
-          </div>
-          <div className="container mt-4 for-card">
+          <div className="container for-card">
             <div className="card2-mob">
               <div>
                 {/* <img className="heart-image" src={HeartO} alt="heart" /> */}

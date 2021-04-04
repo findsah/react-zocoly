@@ -148,21 +148,17 @@ class HomeContent extends Component {
               </div>
               <div className="row paginat">
                 <Col className="justify-content-center">
-                  {itemsPerPage < 9 ? (
-                    <ReactPaginate
-                      previousLabel="<"
-                      nextLabel={">"}
-                      pageCount={pageCount}
-                      onPageChange={(e) => this.handlePageChange(e)}
-                      containerClassName={"pagination-buttons"}
-                      previousLinkClassName={"pag-prev-butt"}
-                      nextLinkClassName={"pag-next-butt"}
-                      disabledClassName={"pag-disabled"}
-                      activeClassName={"pag-active"}
-                    />
-                  ) : (
-                    <div></div>
-                  )}
+                  <ReactPaginate
+                    previousLabel="<"
+                    nextLabel={">"}
+                    pageCount={pageCount}
+                    onPageChange={(e) => this.handlePageChange(e)}
+                    containerClassName={"pagination-buttons"}
+                    previousLinkClassName={"pag-prev-butt"}
+                    nextLinkClassName={"pag-next-butt"}
+                    disabledClassName={"pag-disabled"}
+                    activeClassName={"pag-active"}
+                  />
                 </Col>
               </div>
             </div>
