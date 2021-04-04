@@ -82,10 +82,10 @@ a {
   color: #828282;
 }
 
-.greator {
+.greator-sign {
   height: 18px;
   width: 10px;
-  margin: 0 18px !important;
+  margin: 0 18px;
 }
 /* .product-data {
   margin-top: 10px;
@@ -101,8 +101,8 @@ a {
   .product-data {
     margin-left: -20px !important;
   }
-  .greator {
-    margin: 0 10px !important;
+  .greator-sign {
+    margin: 0px 10px !important;
   }
 }
 @media screen and (max-width: 992px) {

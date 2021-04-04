@@ -30,7 +30,8 @@ class Topbar extends Component {
               <div className="product-data">
                 <div className="prod-name">{item.Title}</div>
                 <div className="first-para">
-                  {item.collection_name} <FaGreaterThan className="greator" />
+                  {item.collection_name}{" "}
+                  <FaGreaterThan className="greator-sign" />
                   {item.product_name}
                 </div>
               </div>
