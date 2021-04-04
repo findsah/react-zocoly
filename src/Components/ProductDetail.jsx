@@ -191,6 +191,13 @@ class ProductDetail extends Component {
         </div>
         {/* Mobile View */}
         <div className="show-in">
+          <div className="top-sec">
+            <div className="prod-name">{item.Title}</div>
+            <div className="first-para">
+              {item.collection_name} <FaGreaterThan className="greator" />
+              {item.product_name}
+            </div>
+          </div>
           <div className="container for-card">
             <div className="card2-mob">
               <div>
