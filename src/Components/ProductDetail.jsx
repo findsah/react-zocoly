@@ -266,7 +266,10 @@ function ProductModal(props) {
       {...props}
       size="sm"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
+      centered={false}
+      scrollable={true}
+      animation={false}
+      dialogClassName="product-modal"
     >
       <Container className="start">
         <Modal.Header className="mybut">

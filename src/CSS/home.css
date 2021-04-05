@@ -349,6 +349,11 @@
   margin-right: 3%;
 }
 
+.tot-rating {
+  display: flex;
+  flex-direction: row;
+}
+
 @media only screen and (max-width: 767px) {
   .res {
     display: flex;
@@ -357,7 +362,7 @@
   }
 }
 
-@media only screen and (max-width: 320px) {
+/* @media only screen and (max-width: 320px) {
   .modal-content {
     margin-bottom: -90px !important;
   }
@@ -367,14 +372,44 @@
   .modal-content {
     margin-bottom: -20px !important;
   }
-}
-
-.tot-rating {
-  display: flex;
-  flex-direction: row;
-}
+} */
 
 @media only screen and (max-width: 450px) {
+  .home-modal {
+    top: 110px !important;
+  }
+  .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    outline: 0;
+    animation: animatebottom 0.4s !important;
+    /* margin-bottom: 150px; */
+    overflow: scroll !important;
+    max-height: 455px !important;
+  }
+  /* .modal.show .modal-dialog {
+    transform: translate(0px, 120px) !important;
+    bottom: 0;
+  } */
+  @keyframes animatebottom {
+    from {
+      bottom: -300px;
+      opacity: 0;
+    }
+
+    to {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+
   .card {
     margin-left: -60px !important;
   }
@@ -453,33 +488,6 @@
     /* margin-bottom: 67px; */
   }
 
-  .modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    outline: 0;
-    animation: animatebottom 0.4s !important;
-    margin-bottom: 150px;
-    overflow: scroll !important;
-    max-height: 455px !important;
-  }
-  @keyframes animatebottom {
-    from {
-      bottom: -300px;
-      opacity: 0;
-    }
-
-    to {
-      bottom: 0;
-      opacity: 1;
-    }
-  }
   .dropdown-menu {
     min-width: 7rem !important;
   }

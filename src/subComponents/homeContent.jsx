@@ -175,8 +175,11 @@ function AccordModal(props) {
       {...props}
       size="sm"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
+      // centered
+      centered={false}
       scrollable={true}
+      animation={false}
+      dialogClassName="home-modal"
     >
       {/* closeButton closeLabel="" */}
       <Container>

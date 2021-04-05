@@ -283,6 +283,10 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .product-modal {
+    top: 85px !important;
+  }
+
   .show-out {
     display: none;
   }
